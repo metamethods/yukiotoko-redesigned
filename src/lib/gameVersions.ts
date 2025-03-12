@@ -19,4 +19,6 @@ export default {
   '25': 'luminous_plus.png',
   '26': 'luminous_plus.png',
   '27': 'luminous_plus.png',
+
+  '30': 'verse.png',
 } as Record<string, string>;
