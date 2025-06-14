@@ -1,4 +1,4 @@
-import { WebSocketProtocol } from "ws-protocol";
+import { WebSocketProtocol } from "@yukiotoko-redesigned/ws-protocol";
 
 export interface APIPlayer {
   errCnt: string;

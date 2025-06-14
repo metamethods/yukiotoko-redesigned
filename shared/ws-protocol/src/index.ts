@@ -1,5 +1,3 @@
-import type { WebSocket } from "bun";
-
 type WebSocketMessage<
   TType extends number,
   TData extends Record<TType, object>,
