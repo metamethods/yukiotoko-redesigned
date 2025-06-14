@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+:root {
+	--text: oklch(86.94% 0.038 285.57);
+	--background: oklch(20.69% 0.01 285.51);
+	--outer: oklch(30.53% 0.018 285.29);
+	--primary: oklch(69.6% 0.118 282.91);
+	--secondary: oklch(36.96% 0.115 279.21);
+	--accent: oklch(46.64% 0.178 276.99);
+}
+
+@theme {
+	--font-heading: 'Montserrat Variable', sans-serif;
+	--font-body: 'Plus Jakarta Sans Variable', sans-serif;
+
+	--color-text: var(--text);
+	--color-background: var(--background);
+	--color-outer: var(--outer);
+	--color-primary: var(--primary);
+	--color-secondary: var(--secondary);
+	--color-accent: var(--accent);
+}
+
+@layer base {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-heading;
+	}
+
+	a:not(.default) {
+		@apply text-primary decoration-primary/50 hover:decoration-primary underline underline-offset-2 transition-colors;
+	}
+
+	button.button {
+		@apply px-4 py-2 transition not-disabled:hover:brightness-75 not-disabled:active:brightness-50;
+	}
+
+	button.primary {
+		@apply bg-primary text-background rounded-lg;
+	}
+
+	button.secondary {
+		@apply bg-secondary text-text rounded-lg;
+	}
+
+	button.tertiary {
+		@apply text-text border-outer rounded-lg border;
+	}
+
+	button:disabled {
+		@apply brightness-50;
+	}
+
+	img {
+		@apply pointer-events-none select-none;
+	}
+}
+
+@layer components {
+	.tooltip-container {
+		@apply relative;
+	}
+
+	.tooltip {
+		@apply bg-outer absolute top-0 left-1/2 hidden -translate-x-1/2 -translate-y-[calc(100%+.5rem)] rounded-lg px-4 py-2;
+	}
+
+	.tooltip-container:hover .tooltip {
+		@apply block;
+	}
+}

@@ -1,0 +1,15 @@
+{
+  "name": "@yukiotoko-redesigned/yukiotoko",
+  "private": true,
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@yukiotoko-redesigned/ws-protocol": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
