@@ -93,7 +93,6 @@ export enum YukiotokoWebSocketEvent {
   Init,
   RoomAdded,
   RoomUpdated,
-  RoomArchived,
   RoomRemoved,
 }
 
@@ -109,9 +108,6 @@ export type YukiotokoWebSocketData = {
     room: Room;
   };
   [YukiotokoWebSocketEvent.RoomUpdated]: {
-    room: Room;
-  };
-  [YukiotokoWebSocketEvent.RoomArchived]: {
     room: Room;
   };
   [YukiotokoWebSocketEvent.RoomRemoved]: {

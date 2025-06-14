@@ -124,7 +124,8 @@ export class YukiotokoInstance {
       } else if (
         room.players.length !== oldRoom.players.length ||
         room.timeRemaining !== oldRoom.timeRemaining ||
-        room.isFinished !== oldRoom.isFinished
+        room.isFinished !== oldRoom.isFinished ||
+        room.isArchived !== oldRoom.isArchived
       ) {
         changes.updated.push(room);
       }

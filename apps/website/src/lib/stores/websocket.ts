@@ -28,7 +28,6 @@ yukiotokoWebsocket.onMessage = (message) => {
 			break;
 		case YukiotokoWebSocketEvent.RoomAdded:
 		case YukiotokoWebSocketEvent.RoomUpdated:
-		case YukiotokoWebSocketEvent.RoomArchived:
 		case YukiotokoWebSocketEvent.RoomRemoved:
 			rooms.update((rooms) => {
 				if (message.type !== YukiotokoWebSocketEvent.RoomRemoved)
