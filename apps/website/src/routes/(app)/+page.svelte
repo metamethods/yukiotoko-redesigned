@@ -22,7 +22,7 @@
 
 		<div class="flex flex-col justify-between gap-4 sm:flex-row">
 			<div class="flex flex-wrap gap-4">
-				{#each $yukiotokoInstances as yukiotokoInstance}
+				{#each $yukiotokoInstances as yukiotokoInstance (yukiotokoInstance.id)}
 					<button
 						onclick={() => (selectedInstance = yukiotokoInstance.id)}
 						class="button {selectedInstance == yukiotokoInstance.id ? 'primary' : 'tertiary'}"
@@ -59,7 +59,7 @@
 	<Pagination items={sortedRooms} itemsPerPage={20} bind:pageItems={roomPageItems} />
 
 	<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-		{#each roomPageItems as room}
+		{#each roomPageItems as room (room.id)}
 			{#if room.instance === selectedInstance || selectedInstance === null}
 				<Room {room} />
 			{/if}

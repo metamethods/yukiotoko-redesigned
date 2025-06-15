@@ -26,7 +26,7 @@
 	<div class="flex flex-wrap gap-2">
 		<button onclick={() => currentPage--} class="button tertiary">Back</button>
 
-		{#each { length: ~~(items.length / itemsPerPage) + 1 } as _, i}
+		{#each { length: ~~(items.length / itemsPerPage) + 1 }, i}
 			<button
 				onclick={() => (currentPage = i)}
 				class="button {i == currentPage

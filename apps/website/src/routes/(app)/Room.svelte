@@ -105,7 +105,7 @@
 			<h3 class="text-xl font-bold">Players ({room.players.length}/4)</h3>
 
 			<div class="flex flex-col gap-2">
-				{#each room.players as player}
+				{#each room.players as player, i (i)}
 					<div class="bg-outer rounded-lg px-4 py-3">
 						{@render playerCard(player)}
 					</div>
