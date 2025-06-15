@@ -2,6 +2,7 @@
   "name": "@yukiotoko-redesigned/ws-protocol",
   "private": true,
   "version": "0.0.1",
+  "type": "module",
   "main": "src/index.ts",
   "devDependencies": {
     "@types/bun": "latest"
