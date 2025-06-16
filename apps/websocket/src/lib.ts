@@ -1,5 +1,5 @@
-import type { APIRoom, Player, Room } from "@yukiotoko-redesigned/yukiotoko";
-import { semver } from "bun";
+import type { APIRoom, Player, Room } from '@yukiotoko-redesigned/yukiotoko';
+import { semver } from 'bun';
 
 interface RoomChange {
 	added: Room[];
@@ -26,19 +26,19 @@ export class YukiotokoInstance {
 		try {
 			const activeRoomsResponse = await fetch(`${this.baseApiUrl}/api/active`, {
 				headers: {
-					Authorization: this.apiToken,
-				},
+					Authorization: this.apiToken
+				}
 			});
 
 			const archivedRoomsResponse = await fetch(`${this.baseApiUrl}/api/history`, {
 				headers: {
-					Authorization: this.apiToken,
-				},
+					Authorization: this.apiToken
+				}
 			});
 
 			return {
 				active: (await activeRoomsResponse.json()) as APIRoom[],
-				archived: (await archivedRoomsResponse.json()) as APIRoom[],
+				archived: (await archivedRoomsResponse.json()) as APIRoom[]
 			};
 		} catch {
 			return null;
@@ -60,14 +60,14 @@ export class YukiotokoInstance {
 						battleRank: Number(apiPlayer.battleRankId),
 						emblem: {
 							medal: Number(apiPlayer.emblemMedal),
-							base: Number(apiPlayer.emblemBase),
+							base: Number(apiPlayer.emblemBase)
 						},
 						team:
-							apiPlayer.isJoinTeam === "true"
+							apiPlayer.isJoinTeam === 'true'
 								? {
-										name: apiPlayer.teamName,
+										name: apiPlayer.teamName
 									}
-								: undefined,
+								: undefined
 					}) satisfies Player
 			),
 			allowAnybody: apiRoom.allowAnybody,
@@ -75,7 +75,7 @@ export class YukiotokoInstance {
 			isFinished: apiRoom.isFinished,
 			isArchived: archived ?? false,
 			mergedWith: apiRoom.mergedRoom,
-			lastUpdated: apiRoom.updatedAt,
+			lastUpdated: apiRoom.updatedAt
 		};
 	}
 
@@ -105,7 +105,7 @@ export class YukiotokoInstance {
 		const changes: RoomChange = {
 			added: [],
 			removed: [],
-			updated: [],
+			updated: []
 		};
 
 		for (const [id, room] of roomsMap) {
