@@ -45,7 +45,7 @@ export class YukiotokoInstance {
 		}
 	}
 
-	private apiRoomToRoom(apiRoom: APIRoom, archived?: boolean): Room {
+	private apiRoomToRoom(apiRoom: APIRoom, dateAdded: string, archived?: boolean): Room {
 		return {
 			id: apiRoom.id,
 			instance: this.id,
@@ -75,7 +75,8 @@ export class YukiotokoInstance {
 			isFinished: apiRoom.isFinished,
 			isArchived: archived ?? false,
 			mergedWith: apiRoom.mergedRoom,
-			lastUpdated: apiRoom.updatedAt
+			lastUpdated: apiRoom.updatedAt,
+			dateAdded
 		};
 	}
 
@@ -87,10 +88,16 @@ export class YukiotokoInstance {
 
 		apiRooms.active
 			.filter((apiRoom) => semver.order(apiRoom.dataVersion, Bun.env.MAX_DATA_VERSION) !== 1)
-			.forEach((apiRoom) => rooms.push(this.apiRoomToRoom(apiRoom)));
+			.forEach((apiRoom) =>
+				rooms.push(this.apiRoomToRoom(apiRoom, this.lastRooms.get(apiRoom.id)?.dateAdded ?? new Date().toISOString()))
+			);
 		apiRooms.archived
 			.filter((apiRoom) => semver.order(apiRoom.dataVersion, Bun.env.MAX_DATA_VERSION) !== 1)
-			.forEach((apiRoom) => rooms.push(this.apiRoomToRoom(apiRoom, true)));
+			.forEach((apiRoom) =>
+				rooms.push(
+					this.apiRoomToRoom(apiRoom, this.lastRooms.get(apiRoom.id)?.dateAdded ?? new Date().toISOString(), true)
+				)
+			);
 
 		return rooms;
 	}

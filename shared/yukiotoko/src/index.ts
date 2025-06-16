@@ -87,6 +87,7 @@ export interface Room {
 	isArchived: boolean;
 	mergedWith?: number;
 	lastUpdated: string;
+	dateAdded: string;
 }
 
 export enum YukiotokoWebSocketEvent {
