@@ -7,7 +7,7 @@
 	let selectedInstance = $state<string | null>('yukiotoko');
 	let sortedRooms = $derived(
 		Object.values($rooms).sort((a, b) => {
-			return new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime();
+			return new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
 		})
 	);
 	let roomPageItems: YukiotokoRoom[] = $state([]);

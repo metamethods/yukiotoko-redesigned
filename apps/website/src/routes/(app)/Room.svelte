@@ -98,7 +98,7 @@
 				<p>Time Remaining - <b>{room.timeRemaining}s</b></p>
 			{/if}
 			<p>Instance - <b>{room.instance}</b></p>
-			<RelativeTime date={new Date(room.lastUpdated)} />
+			<RelativeTime date={new Date(room.dateAdded)} />
 		</div>
 
 		<div class="flex flex-col gap-2">
