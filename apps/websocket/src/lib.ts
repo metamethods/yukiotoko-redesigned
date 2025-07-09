@@ -4,7 +4,10 @@ import { semver } from 'bun';
 interface RoomChange {
 	added: Room[];
 	removed: Room[];
-	updated: Room[];
+	updated: {
+		property: keyof Room;
+		room: Room;
+	}[];
 }
 
 interface FetchedRooms {
@@ -120,7 +123,13 @@ export class YukiotokoInstance {
 			if (!oldRoom) {
 				changes.added.push(room);
 			} else if (room.lastUpdated !== oldRoom.lastUpdated) {
-				changes.updated.push(room);
+				for (const key in room) {
+					if (JSON.stringify(room[key as keyof Room]) == JSON.stringify(oldRoom[key as keyof Room])) continue;
+					changes.updated.push({
+						property: key as keyof Room,
+						room: room
+					});
+				}
 			}
 		}
 

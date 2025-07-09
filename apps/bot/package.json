@@ -1,0 +1,22 @@
+{
+	"name": "bot",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "bun --watch src/index.ts",
+		"build": "bun build src/index.ts --outdir=dist --target=bun",
+		"start": "bun dist/index.js"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"@yukiotoko-redesigned/yukiotoko": "workspace:*",
+		"@yukiotoko-redesigned/db": "workspace:*",
+		"discord.js": "^14.21.0"
+	}
+}

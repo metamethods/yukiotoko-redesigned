@@ -1,0 +1,89 @@
+{
+  "id": "eb19711f-1b6d-43f3-8280-138d784eadb3",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.servers": {
+      "name": "servers",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "always",
+            "name": "servers_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "guild_id": {
+          "name": "guild_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "online_battle_mention_role_id": {
+          "name": "online_battle_mention_role_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "online_battle_tracker_channel_id": {
+          "name": "online_battle_tracker_channel_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "servers_guild_id_unique": {
+          "name": "servers_guild_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "guild_id"
+          ]
+        },
+        "servers_online_battle_mention_role_id_unique": {
+          "name": "servers_online_battle_mention_role_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "online_battle_mention_role_id"
+          ]
+        },
+        "servers_online_battle_tracker_channel_id_unique": {
+          "name": "servers_online_battle_tracker_channel_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "online_battle_tracker_channel_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

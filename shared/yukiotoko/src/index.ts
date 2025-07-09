@@ -109,6 +109,7 @@ export type YukiotokoWebSocketData = {
 		room: Room;
 	};
 	[YukiotokoWebSocketEvent.RoomUpdated]: {
+		property: keyof Room;
 		room: Room;
 	};
 	[YukiotokoWebSocketEvent.RoomRemoved]: {

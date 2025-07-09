@@ -1,25 +1,28 @@
 {
-  "name": "yukiotoko-redesigned",
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "shared/*"
-  ],
-  "scripts": {
-    "dev:websocket": "bun --filter 'websocket' dev",
-    "dev:website": "bun --filter 'website' dev",
-    "dev": "bun --filter '*' dev",
-    "build:websocket": "bun --filter 'websocket' build",
-    "build:website": "bun --filter 'website' build",
-    "build": "bun --filter '*' build",
-    "start:websocket": "bun --filter 'websocket' start",
-    "start:website": "bun --filter 'website' start",
-    "start": "bun --filter '*' start"
-  },
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.8.3"
-  }
+	"name": "yukiotoko-redesigned",
+	"private": true,
+	"workspaces": [
+		"apps/*",
+		"shared/*"
+	],
+	"scripts": {
+		"dev:websocket": "bun --filter 'websocket' dev",
+		"dev:website": "bun --filter 'website' dev",
+		"dev:bot": "bun --filter 'bot' dev",
+		"dev": "bun --filter '*' dev",
+		"build:websocket": "bun --filter 'websocket' build",
+		"build:website": "bun --filter 'website' build",
+		"build:bot": "bun --filter 'bot' build",
+		"build": "bun --filter '*' build",
+		"start:websocket": "bun --filter 'websocket' start",
+		"start:website": "bun --filter 'website' start",
+		"start:bot": "bun --filter 'bot' start",
+		"start": "bun --filter '*' start"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.8.3"
+	}
 }

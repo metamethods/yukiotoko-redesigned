@@ -11,7 +11,7 @@ const server = Bun.serve({
 	fetch(server, request) {
 		if (request.upgrade(server)) return;
 
-		return new Response((indexHtml as string).replace('$WEBUI_URL', Bun.env.WEBUI_URL), {
+		return new Response((indexHtml as unknown as string).replace('$WEBUI_URL', Bun.env.WEBUI_URL), {
 			headers: {
 				'Content-Type': 'text/html'
 			}
@@ -64,11 +64,12 @@ const pollLoop = async () => {
 				})
 			);
 
-		for (const updatedRoom of changes.updated)
+		for (const updatedRoomData of changes.updated)
 			server.publish(
 				'rooms:events',
 				yukiotokoWebsocket.serialize(YukiotokoWebSocketEvent.RoomUpdated, {
-					room: updatedRoom
+					property: updatedRoomData.property,
+					room: updatedRoomData.room
 				})
 			);
 	}
